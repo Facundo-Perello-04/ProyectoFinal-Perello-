@@ -1,0 +1,11 @@
+[
+    {"id": 1, "nombre": "harina", "precio": 50, "img":"https://cdn.newgarden.com.ar/media/catalog/product/cache/dda7253a1a2f6711745de410175d10f8/h/a/harina-de-avena-x-1-kg.jpg", "cantidad": 1
+},
+    {"id": 2, "nombre": "gaseosa",  "precio": 150, "img":"https://www.espaciovino.com.ar/media/default/0001/68/thumb_67604_default_medium.jpeg", "cantidad": 1
+},
+    {"id": 3, "nombre": "cerveza",  "precio": 250, "img":"https://us.123rf.com/450wm/hannaklkv/hannaklkv2303/hannaklkv230301672/200881870-vaso-de-cerveza-sobre-fondo-blanco-ilustraci%C3%B3n-acuarela-de-una-bebida-alcoh%C3%B3lica-fr%C3%ADa.jpg?ver=6", "cantidad": 1
+},
+    {"id": 4, "nombre": "leche", "precio": 350, "img":"https://thefoodtech.com/wp-content/uploads/2020/05/leche-3.jpg", "cantidad": 1
+}
+    
+]

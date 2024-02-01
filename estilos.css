@@ -12,7 +12,7 @@ body{
 .navbar{
     display: flex;
     justify-content: space-between;
-    height:12vh ; /*REVISAR*/
+    height:12vh ; 
     background-color: black;
 }
 .navbar-logo{

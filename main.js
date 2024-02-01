@@ -2,22 +2,12 @@ const shopContent = document.getElementById("shopContent");
 const verCarrito = document.getElementById("verCarrito");
 const modalContainer = document.getElementById("modal-container");
 
-const productos = [
-    {id: 1, nombre: "harina", precio: 50, img:"https://cdn.newgarden.com.ar/media/catalog/product/cache/dda7253a1a2f6711745de410175d10f8/h/a/harina-de-avena-x-1-kg.jpg", cantidad: 1,
-},
-    {id: 2, nombre: "gaseosa",  precio: 150, img:"https://www.espaciovino.com.ar/media/default/0001/68/thumb_67604_default_medium.jpeg", cantidad: 1,
-},
-    {id: 3, nombre: "cerveza",  precio: 250, img:"https://us.123rf.com/450wm/hannaklkv/hannaklkv2303/hannaklkv230301672/200881870-vaso-de-cerveza-sobre-fondo-blanco-ilustraci%C3%B3n-acuarela-de-una-bebida-alcoh%C3%B3lica-fr%C3%ADa.jpg?ver=6", cantidad: 1,
-},
-    {id: 4, nombre: "leche", precio: 350, img:"https://thefoodtech.com/wp-content/uploads/2020/05/leche-3.jpg", cantidad: 1,
-},
-    
-];
 
+const getProducts = async () =>{
+    const response = await fetch("productos.json");
+    const data = await response.json();
 
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-productos.forEach((product) => {
+    data.forEach((product) => {
     let content = document.createElement("div");
     content.className = "card";
     content.innerHTML = `
@@ -36,6 +26,23 @@ productos.forEach((product) => {
     content.append(comprar);
 
     comprar.addEventListener("click",() =>{
+        Toastify({
+            text: " Se agrego al carrito",
+            duration: 3000,
+            destination: "https://github.com/apvarun/toastify-js",
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "left", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "linear-gradient(to right, #641E16, #B03A2E)",
+              borderRadius: "2rem",
+              textTransform: "uppercase",
+              fontSize: "0.75rem"
+            },
+            onClick: function(){} // Callback after click
+          }).showToast();
 
         const repeat = carrito.some ((repeatProduct) => repeatProduct.id === product.id);
 
@@ -59,6 +66,12 @@ productos.forEach((product) => {
         guardar();
     });
 });
+
+};
+getProducts();
+
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
 
 
 
@@ -126,6 +139,25 @@ const pintarCarrito = () => {
 verCarrito.addEventListener("click", pintarCarrito);
 
 const eliminarProducto = () => {
+    Toastify({
+        text: " Se quito del carrito",
+        duration: 3000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "left", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #641E16, #B03A2E)",
+          borderRadius: "2rem",
+          textTransform: "uppercase",
+          fontSize: "0.75rem"
+        },
+        onClick: function(){} // Callback after click
+      }).showToast();
+
+
   const foundId = carrito.find((element) => element.id);  
 
   carrito = carrito.filter((carritoId) =>{
